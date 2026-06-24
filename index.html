@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>时间戳转换器 - Unix 时间戳与日期互转</title>
+<meta name="description" content="免费在线 Unix 时间戳与日期互转工具，附实时当前时间戳。">
+<link rel="canonical" href="https://iraq7mary.github.io/yiwaiwaiservice-timestamp-tool/">
+<meta property="og:title" content="时间戳转换器 - Unix 时间戳与日期互转">
+<meta property="og:description" content="免费在线 Unix 时间戳与日期互转工具，附实时当前时间戳。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iraq7mary.github.io/yiwaiwaiservice-timestamp-tool/">
+<style>
+:root{--b:#1a73e8}
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;max-width:760px;margin:0 auto;padding:24px;color:#1f2937;line-height:1.7;background:#fff}
+h1{color:var(--b);font-size:1.6rem;margin:.2em 0}
+h2{font-size:1.2rem;margin-top:1.6em;border-left:4px solid var(--b);padding-left:10px}
+.card{border:1px solid #e5e7eb;border-radius:10px;padding:18px;margin:16px 0;background:#fafafa}
+table{width:100%;border-collapse:collapse}
+td{padding:6px 8px;border-bottom:1px solid #eee;vertical-align:top;word-break:break-all}
+td:first-child{color:#6b7280;width:38%}
+button{background:var(--b);color:#fff;border:0;border-radius:6px;padding:8px 14px;margin:4px 4px 4px 0;cursor:pointer;font-size:.95rem}
+button:hover{opacity:.9}
+input,textarea{width:100%;padding:8px;border:1px solid #d1d5db;border-radius:6px;font-size:.95rem;margin:4px 0}
+input[type=range]{width:auto}
+code{background:#f3f4f6;padding:2px 6px;border-radius:4px}
+a{color:var(--b)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid #eee;color:#9ca3af;font-size:.85rem}
+</style>
+</head>
+<body>
+<h1>时间戳转换器</h1>
+<p>在 Unix 时间戳与可读日期之间双向转换，并显示实时当前时间戳，开发与客服办公常用。</p>
+<div class="card">
+<p>Unix 时间戳 ⇄ 日期 转换：</p>
+<p>当前时间戳：<b id="now" style="color:#1a73e8"></b></p>
+<input id="ts" placeholder="输入时间戳(秒)"><button onclick="t2d()">→ 转日期</button>
+<input id="dt" type="datetime-local"><button onclick="d2t()">→ 转时间戳</button>
+<div id="out" style="font-weight:600"></div>
+<script>
+var out=document.getElementById('out');
+function t2d(){var v=+document.getElementById('ts').value;if(!v)return;out.textContent=new Date((''+v).length>10?v:v*1000).toLocaleString('zh-CN')}
+function d2t(){var v=document.getElementById('dt').value;if(!v)return;out.textContent=Math.floor(new Date(v).getTime()/1000)+' 秒'}
+setInterval(function(){document.getElementById('now').textContent=Math.floor(Date.now()/1000)},1000);
+</script>
+</div>
+<h2>关于易歪歪</h2>
+<p>易歪歪是一款高效的客服与营销辅助工具，提升团队应答效率。了解更多请访问 <a href="https://yiwaiwaiservice.com/">易歪歪官网</a>。</p>
+<footer>
+<p>本页为 易歪歪 提供的免费在线小工具，数据均在本地浏览器处理，不上传服务器。</p>
+<p>官网：<a href="https://yiwaiwaiservice.com/">yiwaiwaiservice.com</a> · 最后更新：2026-06</p>
+</footer>
+</body>
+</html>
